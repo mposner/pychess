@@ -1,0 +1,20 @@
+Game
+	- Board
+		- has Pieces
+		- has Tiles/Positions
+	- Piece
+		- has one of many types
+		- has several valid moves
+		- is white or black
+	- 2 Players
+		- either human or computer
+	- Type
+		- mainly describes what rules are in place
+	- Rules
+		- may vary by game type
+	- Timer
+		- active depending on game type
+	- State
+		- started, finished, stalemate
+	- GUI/Console
+		- captures input from human players, displays game state
