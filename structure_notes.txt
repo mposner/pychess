@@ -1,11 +1,11 @@
 Game
 	- Board
 		- has Pieces
-		- has Tiles/Positions
 	- Piece
 		- has one of many types
 		- has several valid moves
 		- is white or black
+		- has a position
 	- 2 Players
 		- either human or computer
 	- Type
