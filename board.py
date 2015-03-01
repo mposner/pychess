@@ -38,6 +38,19 @@ class Board:
 		return result
 		
 	
+	def getPiece(self, position):
+		"""Return the piece at the given board square"""
+		
+		if not isValidPosition(position):
+			return None
+		
+		rank = int(position[1]) - 1
+		file = ord(position[0]) - ord("A")
+		
+		return self.board[rank][file]
+	
+	
+	
 	def isValidMove(self, piece, end):
 		"""See if a move is valid for a given Piece"""
 		
@@ -90,7 +103,20 @@ class Board:
 				return False
 		
 		elif piece.type == PieceType.PAWN:
-			# TODO: Finish
+			
+			if filediff == 0 and (endrank-startrank) == 1:
+				# Normal move forward
+				return True
+			elif filediff == 1 and rankdiff == 1:
+				# Only valid if taking an enemy piece
+				if self.getPiece(end) is not None and \
+				   self.getPiece(end).color != piece.color:
+					return True
+			elif filediff == 0 and (endrank-startrank) == 2:
+				# Only valid if pawn is starting from starting position
+				if int(piece.position[1]) == 2:
+					return True			
+			
 			return False
 		
 		

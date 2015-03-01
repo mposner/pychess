@@ -30,7 +30,13 @@ class Piece:
 		return "[" + self.color[0] + "] " + self.type
 	
 	def shortstr(self):
-		if(self.color == Color.WHITE):
-			return self.type[0]
+	
+		if(self.type == PieceType.KNIGHT):
+			s = "N"
 		else:
-			return self.type[0].lower()
+			s = self.type[0]
+	
+		if(self.color == Color.WHITE):
+			return s
+		else:
+			return s.lower()
